@@ -1,0 +1,1 @@
+curl ${PLEX_PORT_50000_TCP_ADDR}:${PLEX_PORT_50000_TCP_PORT}/library/sections -X GET 2>/dev/null | grep -Ei '<Location' | sed 's/^<Location.*id=\"\([0-9]\)\".*/\1/' | xargs -I % curl ${PLEX_PORT_50000_TCP_ADDR}:${PLEX_PORT_50000_TCP_PORT}/library/sections/%/refresh"
